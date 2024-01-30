@@ -1,0 +1,15 @@
+version: '3'
+
+name: scancontrol
+services:
+  pkgs-building-container:
+    container_name: pkgs-building-container
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        UBUNTU_VERSION: jammy #focal,...
+        SCANCONTROL_SDK_VERSION: 1.0.0
+      # no_cache: true
+    restart: always
+    tty: true
